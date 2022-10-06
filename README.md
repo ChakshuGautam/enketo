@@ -258,5 +258,5 @@ State for prefilling, sideEffect.
 TODO: Add details on the specifications
 
 ## Possible Attack Vectors
-1. XSS (High Priority) - Simple form
+1. XSS (High Priority) - Simple form.
 2. SQL Injection (High Priority) - needs to be fixed.
