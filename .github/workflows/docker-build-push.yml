@@ -5,7 +5,7 @@ jobs:
     name: Build Docker Container Image
     runs-on: ubuntu-latest
     steps:
-    - name: Build Docker Image
+    - name: Checkout
       uses: actions/checkout@v2
-      working-directory: packages/enketo-express
-      run: docker build -t docker.pkg.github.com/Ansh-Sarkar/workflow/enketo-express:latest .
+    - name: Build
+      run: cd packages/enketo-express docker build -t docker.pkg.github.com/Ansh-Sarkar/workflow/enketo-express:latest .
