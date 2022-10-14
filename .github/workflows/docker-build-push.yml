@@ -5,5 +5,11 @@ jobs:
     name: Build Docker Container Image
     runs-on: ubuntu-latest
     steps:
-    - name: Build Docker image
-      run: ls && cd packages/enketo-express && docker build -t docker.pkg.github.com/${{ env.GITHUB_REPOSITORY }}/enketo-express:latest .
+    - name: Enter Packages Directory
+      run: cd packages
+      
+    - name: Enter Source Directory
+      run: cd enketo-express
+      
+    - name: Build Docker Image
+      run: docker build -t docker.pkg.github.com/Ansh-Sarkar/workflow/enketo-express:latest .
