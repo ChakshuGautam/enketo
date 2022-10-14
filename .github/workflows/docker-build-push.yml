@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build Docker image
-      run: cd packages/enketo-express && docker build -t docker.pkg.github.com/${{ GITHUB_REPOSITORY }}/enketo-express:latest .
+      run: cd packages/enketo-express && docker build -t docker.pkg.github.com/${{ github.GITHUB_REPOSITORY }}/enketo-express:latest .
