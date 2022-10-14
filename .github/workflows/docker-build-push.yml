@@ -5,13 +5,7 @@ jobs:
     name: Build Docker Container Image
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Publish to Github Packages
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: ${{ github.repository }}/enketo-express
-          tags: latest, ${{ github.run_number }}
+    - name: Build Docker image
+        run: |
+          cd packages/enketo-express
+          docker build -t docker.pkg.github.com/${{ GITHUB_REPOSITORY }}/enketo-express:latest .
