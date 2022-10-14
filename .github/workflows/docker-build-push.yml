@@ -1,0 +1,17 @@
+name: Build and Push updated Docker Image
+on: push
+jobs:
+  build-container:
+    name: Build Docker Container Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Publish to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: ${{ github.repository }}/enketo-express
+          tags: latest, ${{ github.run_number }}
