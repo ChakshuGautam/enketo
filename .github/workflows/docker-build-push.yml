@@ -14,6 +14,6 @@ jobs:
       - name: Build the hello-docker Docker image
         run: |
               cd packages/enketo-express
-              docker build . --tag ghcr.io/deselikem/hello-docker-gcr-demo:latest
-              docker run ghcr.io/deselikem/hello-docker-gcr-demo:latest
-              docker push ghcr.io/deselikem/hello-docker-gcr-demo:latest
+              docker build . --tag ghcr.io/ansh-sarkar/enketo-express:latest
+              docker run ghcr.io/ansh-sarkar/enketo-express:latest
+              docker push ghcr.io/ansh-sarkar/enketo-express:latest
