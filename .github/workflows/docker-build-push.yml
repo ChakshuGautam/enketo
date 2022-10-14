@@ -8,4 +8,4 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Build
-      run: cd packages/enketo-express && docker build -t docker.pkg.github.com/Ansh-Sarkar/workflow/enketo-express:latest .
+      run: cd packages/enketo-express && docker build -t docker.pkg.github.com/ansh-sarkar/workflow/enketo-express:latest .
