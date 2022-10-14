@@ -6,5 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build Docker Image
+      uses: actions/checkout@v2
       working-directory: packages/enketo-express
       run: docker build -t docker.pkg.github.com/Ansh-Sarkar/workflow/enketo-express:latest .
