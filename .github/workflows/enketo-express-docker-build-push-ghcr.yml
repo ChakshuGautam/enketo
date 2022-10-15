@@ -14,7 +14,9 @@ jobs:
         permissions:
             contents: read
             packages: write
-        working-directory: packages/enketo-express
+        defaults:
+          run:
+            working-directory: packages/enketo-express
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
