@@ -1,6 +1,8 @@
 name: publish
 on:
   push:
+    tags:
+      - '*'
     paths:
       - packages/form-manager/**
     branches: [main]
