@@ -1,4 +1,4 @@
-name: Form Manager Publish
+name: Enketo Express Publish
 on:
   push:
     tags:
