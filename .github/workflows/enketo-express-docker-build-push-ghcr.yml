@@ -21,6 +21,9 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
+            - name: Check Directory
+              run: pwd && ls
+
             - name: Store version information
               run: git describe --tags > .tag.txt || git rev-parse --short HEAD > .tag.txt
 
