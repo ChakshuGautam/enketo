@@ -26,7 +26,7 @@ Enketo has been used all around the world for a wide range of uses from needs as
 
 *Note: Preferable Npm version (6.14.15) and Node version(v14.18.1) and Ubuntu OS version(18.04)**
 
-2. Check the node and npm version by running following commands.
+2. Check the node and npm version by running following commands
 
 ```sh
 node -v
