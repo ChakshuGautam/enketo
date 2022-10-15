@@ -2,7 +2,7 @@ name: publish
 on:
   push:
     paths:
-      - packages/enketo-express/**
+      - packages/form-manager/**
     branches: [main]
 jobs:
   publish-hello-docker-image:
@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the hello-docker Docker image
         run: |
-              cd packages/enketo-express
-              docker build . --tag ghcr.io/ansh-sarkar/enketo-express:latest
-              docker run ghcr.io/ansh-sarkar/enketo-express:latest
-              docker push ghcr.io/ansh-sarkar/enketo-express:latest
+              cd packages/form-manager
+              docker build . --tag ghcr.io/ansh-sarkar/form-manager:latest
+              docker run ghcr.io/ansh-sarkar/form-manager:latest
+              docker push ghcr.io/ansh-sarkar/form-manager:latest
