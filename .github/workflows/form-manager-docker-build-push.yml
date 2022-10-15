@@ -19,5 +19,4 @@ jobs:
         run: |
               cd packages/form-manager
               docker build . --tag ghcr.io/ansh-sarkar/form-manager:latest
-              docker run ghcr.io/ansh-sarkar/form-manager:latest
               docker push ghcr.io/ansh-sarkar/form-manager:latest
