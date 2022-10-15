@@ -5,7 +5,7 @@ on:
       - packages/form-manager/**
     branches: [main]
 jobs:
-  publish-hello-docker-image:
+  publish-form-manager-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,8 +15,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build the hello-docker Docker image
+      - name: Build form-manager Docker image
         run: |
               cd packages/form-manager
-              docker build . --tag ghcr.io/ansh-sarkar/form-manager:latest
-              docker push ghcr.io/ansh-sarkar/form-manager:latest
+              docker build . --tag ghcr.io/${{ github.actor }}/form-manager:latest
+              docker push ghcr.io/${{ github.actor }}/form-manager:latest
