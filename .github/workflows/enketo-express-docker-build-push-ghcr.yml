@@ -1,11 +1,11 @@
 name: Enketo Express Publish
 on:
   push:
-    tags:
-      - '*'
+    branches: [main]
     paths:
       - packages/enketo-express/**
-    branches: [main]
+    tags:
+      - '*'
 jobs:
   publish-enketo-express-docker-image:
     runs-on: ubuntu-latest
