@@ -1,6 +1,10 @@
 name: Form Manager Publish
 on:
   push:
+    tags:
+      - '*'
+    paths:
+      - packages/enketo-express/**
     branches: [main]
 jobs:
   publish-enketo-express-docker-image:
