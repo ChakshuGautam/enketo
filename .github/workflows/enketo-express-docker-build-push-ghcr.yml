@@ -14,7 +14,7 @@ jobs:
         permissions:
             contents: read
             packages: write
-
+        working-directory: packages/enketo-express
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
@@ -42,7 +42,6 @@ jobs:
             # Build and push Docker image with Buildx
             # https://github.com/docker/build-push-action
             - name: Build and push Docker image
-              working-directory: packages/enketo-express
               uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
               with:
                   context: .
