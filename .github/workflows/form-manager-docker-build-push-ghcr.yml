@@ -1,4 +1,4 @@
-name: publish
+name: Form Manager Publish
 on:
   push:
     tags:
