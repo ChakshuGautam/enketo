@@ -1,11 +1,11 @@
 name: Form Manager Publish
 on:
   push:
-    branches: [main]
     paths:
       - packages/form-manager/**
     tags:
       - '*'
+    branches: [main]
 jobs:
   publish-form-manager-docker-image:
     runs-on: ubuntu-latest
