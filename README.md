@@ -1,114 +1,62 @@
-<p align="center">
-  <h1>Enketo - ODK Backend</h1>
-</p>
+# Introduction to Workflow
 
-## About :open_book:
+Workflow is an Open Source project aimed towards the creation of data flow models using config files thereby allowing you to easily create and interact with stateful applications with minimum setup.
 
-Enketo has been used all around the world for a wide range of uses from needs assessments in humanitarian aid, to raising historical awareness, to clinical research, to election monitoring.
+We appreciate your interest in the project. Here are a few resources which you might find useful in order to get started or dive deeper into its architecture.
 
-## Features :dart:
+[Introduction to Workflow](https://samagra-development.github.io/workflow/) 👈 You are here
 
-- [x] Can connect to your custom backend
-- [ ] Have the edit api in case user wants to edit submitted response
-- [ ] Api for the customize change in XML of form
-- [x] Have beautiful themes and widgets
-- [x] Are printer-friendly
-- [x] Can use very powerful skip and validation logic
-- [x] Run on any device, mobile or desktop, as long as it has a fairly modern browser
+👉󠀠󠀠󠀠 󠀠󠀠󠀠󠀠󠀠[Getting Started](https://samagra-development.github.io/workflow/category/getting-started) <br/>
+👉 [Guides](https://samagra-development.github.io/workflow/category/guides) <br/>
+👉 [Advanced Guides](https://samagra-development.github.io/workflow/category/advanced-guides) <br/>
+👉 [Future Roadmaps](https://samagra-development.github.io/workflow/category/future-roadmaps) <br/>
+👉 [Community](https://samagra-development.github.io/workflow/category/community)
 
-## Use Case :rocket:
+> If you would like to contribute to this project, kindly refer to the **Contributions** Page under the **Community** category. Kindly make
 
-![Screencast from 03-02-22 05_31_50 PM IST](https://user-images.githubusercontent.com/56133783/152341126-ac03baa3-258c-473a-956a-d0973682234a.gif)
+<br>
 
-## Requirements :scroll:
+# Setup and Installation
 
-1. Your machine should have [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) or [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Docker](https://docs.docker.com/get-docker/), [Python](https://www.python.org/downloads/) installed.
+## System Requirements
 
-*Note: Preferable Npm version (6.14.15) and Node version(v14.18.1) and Ubuntu OS version(18.04)**
+The primary requirements of the project include [**NodeJS**](https://nodejs.org/en/) and [**Docker**](https://www.docker.com/). Multiple ```node``` versions have been used and hence it is recommended that you have the latest version of ```NVM - Node Version Manager``` installed on your computer. A ```.nvmrc``` file will be added to every directory in order to make sure that the current ```node``` version is being used to build it.
 
-2. Check the node and npm version by running following commands
+> **Recommended :** NPM version (6.14.15) and Node versio (v14.18.1) and Ubuntu OS version (18.04)
+> Your machine should have [Yarn](https://yarnpkg.com/) / [NPM](https://www.npmjs.com/) & [Python](https://www.python.org/) installed.
 
-```sh
+> You can check your ```node``` and ```npm``` versions by running the following commands
+
+```
 node -v
 npm -v
 ```
 
-## Installation Steps :walking:
+## Installation
 
-### 1. Fork it :fork_and_knife:
+In order to make the process of getting started with the project as easy and seamless as possible, we have a single command setup for enabling fast and convenient setup.
 
-You can get your own fork/copy of [enketo](https://github.com/Samagra-Development/enketo) by using the <kbd><b>Fork</b></kbd> button.
+👉 Go ahead and fork the repository to get your own copy by clicking on the ```Fork``` button.
 
-### 2. Clone it :busts_in_silhouette:
+👉 Clone the repository and select the **workflow** directory as the current directory.
 
-You need to clone (download) it to a local machine using
-
-```sh
-git clone https://github.com/Your_Username/enketo.git
+```bash
+git clone https://github.com/Samagra-Development/workflow
+cd workflow
 ```
 
-> This makes a local copy of the repository in your machine.
-
-Once you have cloned the `enketo` repository in GitHub, move to that folder first using the change directory command.
-
-```sh
-# This will change directory to a folder FOSSologyUI
-cd enketo
+👉 Setup and all start packages and applications by running this single command
+```bash
+npm run start
 ```
 
-Move to this folder for all other commands.
+This command should setup and initialize all the different packages on which the project depends on and also start the sample application for you to experiment with.
 
-### 3. Set it up :arrow_up:
+👉 The repository is structured as a **monorepo** managed using [**Turborepo**](https://turborepo.org/) in order to cache and speed up builds, create pipelines and enabling the concurrent execution of scripts, all of which result in an improved Developer Experience (DX). Active work continues on this and progress can be tracked [**here**](https://github.com/Samagra-Development/workflow) 
 
-Run the following commands to see that _your local copy_ has a reference to _your forked remote repository_ in GitHub :octocat:
+> Make sure you have ```Docker``` installed on your system as some of the packages depend on underlying docker containers. The team is currently planning to shift all servers to containers. You can track the progress on this migration [here](https://github.com/Samagra-Development/workflow/issues/14)
 
-```sh
-git remote -v
-origin  https://github.com/Your_Username/enketo.git (fetch)
-origin  https://github.com/Your_Username/enketo.git (push)
-```
-
-### 4. Run it :checkered_flag:
-
-```sh
-cd enketo-express
-docker run --name enketo-redis-main -p 6379:6379 -d redis
-docker run --name enketo-redis-cache -p 6380:6379 -d redis
-npm install
-npm i -g grunt
-grunt develop
-```
-
-```sh
-cd ../enketo-core
-npm install
-npm start
-```
-
-```sh
-cd ../enketo-transformer
-npm install
-npm start
-```
-
-```sh
-cd ../forms
-python3 -m http.server
-```
-
-You can preview your form on http://localhost:8005/preview?xform=http://localhost:8080/getForm/SOE
-
-### 5. For integrating your backend
-
-Customize the [submission url](https://github.com/Samagra-Development/enketo/blob/main/enketo-express/public/js/src/module/connection.js#L150) with your hosted backend.
-
-## Future Enhancements :rocket:
-
-- [Encrypting query parameters on rendering the enketo form. ](https://github.com/Samagra-Development/enketo/issues/1)
-- Writing a API for changing an XML form directly from it.
-- add npm scripts for install
-
-We are trying to an inversion of control here.
+<hr>
 
 ### For Get API
 
