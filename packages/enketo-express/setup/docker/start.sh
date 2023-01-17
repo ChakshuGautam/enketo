@@ -12,14 +12,14 @@ CHECKSUM_DIR_PATH="${ENKETO_SRC_DIR}/checksum"
 
 CONFIG_FILE="config.json"
 CONFIG_FILE_PATH="${ENKETO_SRC_DIR}/config/${CONFIG_FILE}"
-SHA1SUM_CONFIG_FILE_PATH="${CHECKSUM_DIR_PATH}/${CONFIG_FILE}.sha1"
+# SHA1SUM_CONFIG_FILE_PATH="${CHECKSUM_DIR_PATH}/${CONFIG_FILE}.sha1"
 
 LAST_BUILD_COMMIT_FILE="last_build_commit.txt"
 LAST_BUILD_COMMIT_FILE_PATH="${CHECKSUM_DIR_PATH}/${LAST_BUILD_COMMIT_FILE}"
 
 RUN_GRUNT=0
 # Compare config version
-sha1sum --status -c "${SHA1SUM_CONFIG_FILE_PATH}" || RUN_GRUNT=1
+# sha1sum --status -c "${SHA1SUM_CONFIG_FILE_PATH}" || RUN_GRUNT=1
 
 # Compare commit version
 CURRENT_COMMIT=$(git rev-parse HEAD) # Get current commit
@@ -46,7 +46,7 @@ if [ "$RUN_GRUNT" == 1 ]; then
     echo "Saving current commit..."
     echo $CURRENT_COMMIT > ${LAST_BUILD_COMMIT_FILE_PATH}
     echo "Saving config hash..."
-    sha1sum ${CONFIG_FILE_PATH} > "${SHA1SUM_CONFIG_FILE_PATH}"
+    # sha1sum ${CONFIG_FILE_PATH} > "${SHA1SUM_CONFIG_FILE_PATH}"
     echo "Creating .not-empty files"
     touch $NOT_EMPTY_JS_PATH
     touch $NOT_EMPTY_CSS_PATH

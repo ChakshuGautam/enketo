@@ -1,0 +1,29 @@
+name: Enketo Express Publish
+on:
+  push:
+    paths:
+      - packages/enketo-express/**
+    tags:
+      - '*'
+    branches: [main]
+jobs:
+  publish-enketo-express-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        env:
+          OWNER: '${{ github.repository_owner }}'
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build enketo-express Docker image
+        run: |
+              cd packages/enketo-express
+              docker build . --tag ghcr.io/$OWNER_LC/enketo-express:latest
+              docker push ghcr.io/$OWNER_LC/enketo-express:latest

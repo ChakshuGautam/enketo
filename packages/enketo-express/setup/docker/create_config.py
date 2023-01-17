@@ -36,6 +36,8 @@ def create_config():
 
     CONFIG_FILE_PATH = os.path.join(PROJECT_ROOT_PATH, 'config/config.json')
     if not os.path.isfile(CONFIG_FILE_PATH):
+        CONFIG_FILE_PATH = os.path.join(PROJECT_ROOT_PATH, 'config/default-config.json')
+    if not os.path.isfile(CONFIG_FILE_PATH):
         raise EnvironmentError('No Enketo Express configuration found at `{}`.'.format(CONFIG_FILE_PATH))
     else:
         try:
