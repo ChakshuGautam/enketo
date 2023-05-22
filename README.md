@@ -222,6 +222,41 @@ TODO: Add details on the specifications
 1. XSS (High Priority) - Simple form
 2. SQL Injection (High Priority) - needs to be fixed.
 
+
+### LocalSetup
+1. Fork the repository on your local machine.
+2. Make sure you have docker and docker compose on your machine.
+3. Change the enviroment variables in sample.env or .env file as shown below.
+   It will use the locally created containers and connect to those services. 
+    ```
+    REACT_APP_ENKETO_URL=http://localhost:8065
+    REACT_APP_FORM_MANAGER_URL=http://localhost:3006
+    REACT_APP_HASURA_URL=http://localhost:8080
+    ```
+4. Run the command
+    - For Development Environment
+        ```sh
+        type -p curl >/dev/null || sudo apt install curl -y
+        curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+        sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+        sudo apt update
+        sudo apt install gh -y
+        ```
+   - For installing ODK-Central
+        ```sh
+        bash install-central.sh
+        ```
+   - To start Services
+
+    1. If you have v1 of docker then excute this command
+         ```sh
+         docker-compose up -d
+         ```
+    2. Otherwisse execute this 
+         ```sh
+         docker compose up -d
+         ```
 NOTE:
 -----
 ```
