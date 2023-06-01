@@ -14,11 +14,13 @@ tasks:
     init: |
       gp sync-done dev-setup
       bash install-central.sh
+  - name: generate env file
+    command: cp sample.env .env
   - name: Start Services
     openMode: tab-after
     init: |
       gp sync-done dev-setup
-      # Not needed now, we can use docker-compose networking.. but one can use this in a script to repalce env vars at runtime in .env
+      # Not needed now, we can use docker-compose networking.. but one can use this in a script to replace env vars at runtime in .env
       # sed -i~ "/^FORM_MANAGER_URL=/s/=.*/=https\:\/\/3006-${GITPOD_WORKSPACE_URL:8}/" .env
       sed -i~ "/^MINIO_URL=/s/=.*/=https\:\/\/9000-${GITPOD_WORKSPACE_URL:8}/" .env
       # sed -i~ "/^MINIO_ENDPOINT=/s/=.*/=9000-${GITPOD_WORKSPACE_URL:8}/" .env
